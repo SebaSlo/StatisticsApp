@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StatisticsApp.View.VLoadUserData">
+    <ScrollView BackgroundColor="{StaticResource DefaultBackAppColor}">
+        <StackLayout>
+            <!--Dar posibilidad al usuario de cargar valores-->
+            <Frame Style="{StaticResource FrameCard}">
+                <StackLayout>
+                    <Label TextColor="Black">
+{}  Ingrese los valores separados por espacios.
+  Use punto o coma como separador decimal.
+                    </Label>
+                    <Editor HeightRequest="150" 
+                            TextColor="Black"
+                            BackgroundColor="#F5F7CD"
+                            HorizontalOptions="Fill"
+                            Text="{Binding UserDataString}"></Editor>
+                    <StackLayout>
+                        <Button Text="Cargar" Command="{Binding LoadUserData}"
+                                BackgroundColor="WhiteSmoke"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <!--Dar posibilidad al usuario de cargar valores desde un archivo svg-->
+            <Frame Style="{StaticResource FrameCard}">
+                <StackLayout>
+                    <Label Text="{}  Pulse el boton Abrir para cargar los datos desde un archivo .svg o .txt."></Label>
+                    <Button Text="Abrir"></Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

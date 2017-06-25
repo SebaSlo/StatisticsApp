@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StatisticsApp.View.VDescriptive"
+             Title="{Binding Title}">
+    <StackLayout>
+
+        <ListView
+            ItemsSource="{Binding DataDescriptive, Mode=TwoWay}"
+            IsGroupingEnabled="True"
+            HasUnevenRows="True"          
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand"
+            IsVisible="{Binding EmptyData}"
+            >
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label Text="{Binding Type}"
+                               HeightRequest="45"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="FillAndExpand">                            
+                            <Label.TextColor>
+                                <OnPlatform  x:TypeArguments="Color"
+                                             WinPhone="#3F1160"
+                                             iOS="WhiteSmoke"
+                                             Android="WhiteSmoke"/>
+                            </Label.TextColor>
+                            
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double"
+                                            iOS="20" 
+                                            Android="20" 
+                                            WinPhone="20" />
+                            </Label.FontSize>
+                            
+                            <Label.BackgroundColor>
+                                <OnPlatform x:TypeArguments="Color" 
+                                            WinPhone="White"
+                                            iOS="#A279C0"
+                                            Android="#A279C0">
+                                </OnPlatform>
+                                
+                            </Label.BackgroundColor>
+                        </Label>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Margin="10" HeightRequest="40" VerticalOptions="FillAndExpand">
+                            <Label VerticalOptions="CenterAndExpand" Text="{Binding Detail}" TextColor="{StaticResource PrimaryColor}"></Label>
+                            <Label VerticalOptions="CenterAndExpand" Text=": " ></Label>
+                            <Label VerticalOptions="CenterAndExpand" Text="{Binding Value}" ></Label>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame Margin="0,-5,0,0" Padding="0,5,0,5">
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="bt_cargar" Clicked="NavigateToLoadUserData" Text="Cargar Datos" TextColor="{StaticResource PrimaryColor}" BackgroundColor="WhiteSmoke" HorizontalOptions="FillAndExpand"></Button>
+                <Button x:Name="bt_generar" Clicked="NavigateToLoadUserData" Text="Generar Datos" TextColor="{StaticResource PrimaryColor}" BackgroundColor="WhiteSmoke" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </Frame>
+
+    </StackLayout>
+</ContentPage>
