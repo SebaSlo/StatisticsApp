@@ -26,15 +26,16 @@ namespace StatisticsApp.ViewModel
             set
             {
                 SetProperty(ref userDataString, value);
+                (LoadUserData as Command).RaiseCanExecuteChanged();
             }
         }
 
-        private bool emptyData;
 
+        private bool emptyData;
         public bool EmptyData
         {
             get { return emptyData; }
-            set { SetProperty(ref emptyData, value); }
+            set { SetProperty(ref emptyData, value);}
         }
 
 
@@ -50,7 +51,7 @@ namespace StatisticsApp.ViewModel
         {
             Title = "Estadística Descriptiva";
             EmptyData = false;
-            LoadUserData = new Command(LoadValuesFromUserData, null);
+            LoadUserData = new Command(LoadValuesFromUserData, ()=> { return !string.IsNullOrEmpty(UserDataString); });
 #if DEBUG
             //Carga valores de ejemplo para ver el funcionamiento de la app
             //CargarValores();

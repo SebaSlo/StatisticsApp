@@ -6,28 +6,29 @@
 
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
-            <Color x:Key="DetailColor">#A279C0</Color>
-            <Color x:Key="DefaultBackAppColor">#625F63</Color>
-            <Color x:Key="PrimaryColor">#3F1160</Color>
+            <Color x:Key="DefaultBackAppColor">#BDBDBD</Color>
+            <Color x:Key="DefaultPrimaryColor">#FF9800</Color>
+            <Color x:Key="DetailColor">#FFE0B2</Color>
+            <Color x:Key="DefaultBackgroundControlColor">WhiteSmoke</Color>
+            <Color x:Key="PrimaryColor">#F57C00</Color>
+            <Color x:Key="AccentColor">#448AFF</Color>
+            <Color x:Key="TextPrimaryColor">#212121</Color>
+            <Color x:Key="TextSecondaryColor">#757575</Color>
+            <Color x:Key="TextButtonColor">WhiteSmoke</Color>
+            
 
             <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="WhiteSmoke"></Setter>
-                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource AccentColor}"></Setter>
+                <Setter Property="TextColor" Value="{StaticResource TextButtonColor}"></Setter>
             </Style>
-            
+
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="#3F1160"></Setter>
-                <Setter Property="BarTextColor" Value="White"></Setter>
-            </Style>
-            
-            <Style TargetType="TabbedPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource Key=DetailColor}"></Setter>
-                <Setter Property="BarTextColor" Value="White"></Setter>
-                <Setter Property="Padding" Value="0,0,0,0"></Setter>
+                <Setter Property="BarBackgroundColor" Value="{StaticResource DefaultPrimaryColor}"></Setter>
+                <Setter Property="BarTextColor" Value="{StaticResource TextButtonColor}"></Setter>
             </Style>
 
             <Style TargetType="Frame" x:Key="FrameCard">
-                <Setter Property="BackgroundColor" Value="White"></Setter>
+                <Setter Property="BackgroundColor" Value="{StaticResource DefaultBackgroundControlColor}"></Setter>
                 <Setter Property="Margin" Value="5,2.5,5,2.5"></Setter>
                 <Setter Property="CornerRadius" Value="3"></Setter>
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>

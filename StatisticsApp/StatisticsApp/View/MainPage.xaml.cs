@@ -15,8 +15,8 @@ namespace StatisticsApp.View
         public MainPage()
         {
             InitializeComponent();
-            this.BarBackgroundColor = Color.FromRgb(162, 121, 192);
-            this.BarTextColor = Color.WhiteSmoke;
+            //this.BarBackgroundColor = Color.FromRgb(162, 121, 192);
+            //this.BarTextColor = Color.WhiteSmoke;
         }
     }
 }

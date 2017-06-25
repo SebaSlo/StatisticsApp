@@ -20,29 +20,22 @@
                                HeightRequest="45"
                                HorizontalTextAlignment="Center"
                                VerticalTextAlignment="Center"
-                               HorizontalOptions="FillAndExpand">                            
-                            <Label.TextColor>
+                               HorizontalOptions="FillAndExpand"
+                               TextColor="{StaticResource TextPrimaryColor}">                            
+                            
+                            <!--<Label.TextColor>
                                 <OnPlatform  x:TypeArguments="Color"
                                              WinPhone="#3F1160"
                                              iOS="WhiteSmoke"
                                              Android="WhiteSmoke"/>
-                            </Label.TextColor>
-                            
+                            </Label.TextColor>-->
+
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double"
                                             iOS="20" 
                                             Android="20" 
                                             WinPhone="20" />
                             </Label.FontSize>
-                            
-                            <Label.BackgroundColor>
-                                <OnPlatform x:TypeArguments="Color" 
-                                            WinPhone="White"
-                                            iOS="#A279C0"
-                                            Android="#A279C0">
-                                </OnPlatform>
-                                
-                            </Label.BackgroundColor>
                         </Label>
                     </ViewCell>
                 </DataTemplate>
@@ -62,9 +55,9 @@
         </ListView>
 
         <Frame Margin="0,-5,0,0" Padding="0,5,0,5">
-            <StackLayout Orientation="Horizontal">
-                <Button x:Name="bt_cargar" Clicked="NavigateToLoadUserData" Text="Cargar Datos" TextColor="{StaticResource PrimaryColor}" BackgroundColor="WhiteSmoke" HorizontalOptions="FillAndExpand"></Button>
-                <Button x:Name="bt_generar" Clicked="NavigateToLoadUserData" Text="Generar Datos" TextColor="{StaticResource PrimaryColor}" BackgroundColor="WhiteSmoke" HorizontalOptions="FillAndExpand"></Button>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button x:Name="bt_cargar" Clicked="NavigateToLoadUserData" Text="Cargar Datos"  HorizontalOptions="FillAndExpand"></Button>
+                <Button x:Name="bt_generar" Clicked="NavigateToLoadUserData" Text="Generar Datos"  HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </Frame>
 

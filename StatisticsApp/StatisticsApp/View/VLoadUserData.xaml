@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StatisticsApp.View.VLoadUserData">
+             x:Class="StatisticsApp.View.VLoadUserData"
+             Title="Cargar Datos">
     <ScrollView BackgroundColor="{StaticResource DefaultBackAppColor}">
         <StackLayout>
             <!--Dar posibilidad al usuario de cargar valores-->
@@ -17,8 +18,7 @@
                             HorizontalOptions="Fill"
                             Text="{Binding UserDataString}"></Editor>
                     <StackLayout>
-                        <Button Text="Cargar" Command="{Binding LoadUserData}"
-                                BackgroundColor="WhiteSmoke"></Button>
+                        <Button Text="Cargar" Command="{Binding LoadUserData}"></Button>
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -28,6 +28,20 @@
                 <StackLayout>
                     <Label Text="{}  Pulse el boton Abrir para cargar los datos desde un archivo .svg o .txt."></Label>
                     <Button Text="Abrir"></Button>
+                </StackLayout>
+            </Frame>
+
+            <!--Dar posibilidad de que la app cargue valores aleatorios por su cuenta.-->
+            <Frame Style="{StaticResource FrameCard}">
+                <StackLayout>
+                    <Label Text="{}  Cargue valores aleatorios. Puede especificar cantidad de datos de la muestra, desvío estándar, media e incluso, un rango de valores."></Label>
+                    <Entry Placeholder="Cantidad de valores"></Entry>
+                    <StackLayout Orientation="Horizontal">
+                        <Entry Placeholder="Media" HorizontalOptions="FillAndExpand"></Entry>
+                        <Entry Placeholder="Desvío" HorizontalOptions="FillAndExpand"></Entry>
+                    </StackLayout>
+                    <Entry Placeholder="Máximo - Mínimo ej: 10-20"></Entry>
+                    <Button Text="Generar" ></Button>
                 </StackLayout>
             </Frame>
         </StackLayout>

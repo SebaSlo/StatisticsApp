@@ -13,6 +13,8 @@ namespace StatisticsApp
         {
             InitializeComponent();
             TabbedPage MP = new StatisticsApp.View.MainPage();
+            MP.BarBackgroundColor = (Color)Resources["DetailColor"];
+            MP.BarTextColor = (Color)Resources["TextSecondaryColor"];
 
             MP.Children.Add(new StatisticsApp.View.VDescriptive() { BindingContext=new ViewModel.VMDescriptive()});
             MP.Children.Add(new StatisticsApp.View.VGraphic());
