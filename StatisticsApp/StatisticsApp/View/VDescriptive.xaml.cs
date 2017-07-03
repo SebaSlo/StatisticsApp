@@ -15,12 +15,12 @@ namespace StatisticsApp.View
         public VDescriptive()
         {
             InitializeComponent();
+            ListView lb = new ListView();
         }
 
         private void NavigateToLoadUserData(object sender, EventArgs e)
         {
             Navigation.PushAsync(new VLoadUserData() { BindingContext = this.BindingContext});
-
         }
     }
 }

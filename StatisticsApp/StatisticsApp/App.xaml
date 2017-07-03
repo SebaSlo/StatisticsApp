@@ -15,6 +15,7 @@
             <Color x:Key="TextPrimaryColor">#212121</Color>
             <Color x:Key="TextSecondaryColor">#757575</Color>
             <Color x:Key="TextButtonColor">WhiteSmoke</Color>
+            <Color x:Key="DynamicDetailColor">Transparent</Color>
             
 
             <Style TargetType="Button">

@@ -38,6 +38,30 @@ namespace StatisticsApp.ViewModel
             set { SetProperty(ref emptyData, value);}
         }
 
+        /*
+         * Propiedad que enlaza el item seleccionado del control ListView
+         * Este enlace devuelve el objeto que está en el item del control
+         */
+        private ItemDescriptive itemSelected;
+        public ItemDescriptive ItemSelected
+        {
+            get { return itemSelected; }
+            set
+            {
+                if(itemSelected != null)
+                {
+                    itemSelected.Selected = false;
+                }
+
+                SetProperty(ref itemSelected, value);
+
+                if (itemSelected != null)
+                {
+                    itemSelected.Selected = true;
+                }
+            }
+        }
+
 
         private ICommand loadUserData;
         public ICommand LoadUserData

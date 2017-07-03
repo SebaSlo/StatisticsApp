@@ -2,34 +2,37 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StatisticsApp.View.VDescriptive"
+            xmlns:Custom= "clr-namespace:StatisticsApp.CustomControls"
+             xmlns:Convert="clr-namespace:StatisticsApp.Converters"
              Title="{Binding Title}">
-    <StackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Convert:BoolToColorConverter x:Key="BoolToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <StackLayout BackgroundColor="White">
 
         <ListView
+            x:Name="lbDescriptive"
             ItemsSource="{Binding DataDescriptive, Mode=TwoWay}"
             IsGroupingEnabled="True"
             HasUnevenRows="True"          
             SeparatorVisibility="None"
             VerticalOptions="FillAndExpand"
             IsVisible="{Binding EmptyData}"
+            SelectedItem="{Binding ItemSelected}"
             >
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell >
                         <Label Text="{Binding Type}"
                                HeightRequest="45"
                                HorizontalTextAlignment="Center"
                                VerticalTextAlignment="Center"
                                HorizontalOptions="FillAndExpand"
-                               TextColor="{StaticResource TextPrimaryColor}">                            
-                            
-                            <!--<Label.TextColor>
-                                <OnPlatform  x:TypeArguments="Color"
-                                             WinPhone="#3F1160"
-                                             iOS="WhiteSmoke"
-                                             Android="WhiteSmoke"/>
-                            </Label.TextColor>-->
-
+                               TextColor="{StaticResource TextPrimaryColor}">
                             <Label.FontSize>
                                 <OnPlatform x:TypeArguments="x:Double"
                                             iOS="20" 
@@ -44,11 +47,19 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Margin="10" HeightRequest="40" VerticalOptions="FillAndExpand">
-                            <Label VerticalOptions="CenterAndExpand" Text="{Binding Detail}" TextColor="{StaticResource PrimaryColor}"></Label>
-                            <Label VerticalOptions="CenterAndExpand" Text=": " ></Label>
-                            <Label VerticalOptions="CenterAndExpand" Text="{Binding Value}" ></Label>
-                        </StackLayout>
+                        <Grid HeightRequest="60" BackgroundColor="{Binding Selected, Converter={StaticResource BoolToColorConverter}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout x:Name="ItemSelectedDecorator" BackgroundColor="{DynamicResource DynamicDetailColor}" Grid.Column="0"></StackLayout>
+                            <StackLayout Grid.Column="1" Orientation="Horizontal" Margin="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                                <Label VerticalOptions="CenterAndExpand" Text="{Binding Detail}" TextColor="{StaticResource TextPrimaryColor}" Margin="10, 0, 0, 0"></Label>
+                                <Label VerticalOptions="CenterAndExpand" Text=": " ></Label>
+                            </StackLayout>
+                            <Label Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Text="{Binding Value}" TextColor="{StaticResource TextSecondaryColor}"></Label>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -57,7 +68,6 @@
         <Frame Margin="0,-5,0,0" Padding="0,5,0,5">
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                 <Button x:Name="bt_cargar" Clicked="NavigateToLoadUserData" Text="Cargar Datos"  HorizontalOptions="FillAndExpand"></Button>
-                <Button x:Name="bt_generar" Clicked="NavigateToLoadUserData" Text="Generar Datos"  HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
         </Frame>
 

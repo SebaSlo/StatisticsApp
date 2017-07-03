@@ -9,6 +9,8 @@ namespace StatisticsApp
 {
     public partial class App : Application
     {
+        public static ResourceDictionary AppResources;
+
         public App()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace StatisticsApp
             MP.Children.Add(new StatisticsApp.View.VTheory());
 
             MainPage = new NavigationPage(MP);
+            AppResources = this.Resources;            
         }
 
         protected override void OnStart()
